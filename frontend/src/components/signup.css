@@ -1,0 +1,7 @@
+.containere {
+    background-image: url('https://images.pexels.com/photos/354939/pexels-photo-354939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+   background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: contain;
+ }
