@@ -31,12 +31,12 @@ const signup = () => {
   };
 
   return (
-    <div className="text-center   containere flex flex-col h-screen justify-center items-center text-white ">
-      <div className="border p-20 w-3/4 md:w-96 lg:w-96 rounded-3xl flex flex-col justify-center bg-slate-600  items-center">
+    <div className="text-center landscape:p-10  landscape:sm:h-auto  landscape:md:h-auto landscape:lg:h-screen containere flex flex-col h-screen justify-center items-center text-white">
+      <div className="border p-6 md:p-10 w-3/4 sm:max-w-md m-6 rounded-3xl flex flex-col justify-center bg-slate-600 items-center">
         <h1 className="text-3xl font-bold mb-4"> Sign up</h1>
         <form
           onSubmit={handleSubmit}
-          className="sign-up-form flex flex-col justify-center items-center "
+          className="sign-up-form flex flex-col justify-center items-center w-full"
         >
           <label htmlFor="username">Username: </label>
           <input
@@ -47,9 +47,8 @@ const signup = () => {
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className=" border text-black p-1 rounded text-center w-50"
+            className="border text-black p-2 rounded text-center w-full mb-4"
           />
-          <br />
           <label htmlFor="email">Email: </label>
           <input
             type="email"
@@ -59,10 +58,9 @@ const signup = () => {
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            className=" text-black border p-1 rounded text-center w-50"
+            className="border text-black p-2 rounded text-center w-full mb-4"
             autoComplete="off"
           />
-          <br />
           <label htmlFor="password">Password: </label>
           <input
             type="password"
@@ -72,16 +70,18 @@ const signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             placeholder="Enter password"
-            className=" border text-black  p-1 rounded text-center w-50"
+            className="border text-black p-2 rounded text-center w-full mb-4"
           />
-          <br />
-          <button className="bg-cyan-600 text-lg w-48 p-2 rounded-lg  mt-4 hover:bg-cyan-700 text-white">
+          <button className="bg-cyan-600 text-lg w-full p-2 rounded-lg mb-4 hover:bg-cyan-700 text-white">
             Sign Up
           </button>
-          <p className="p-1"> Have an Account ? </p>
-          <Link to="/login" className="text underline text-blue-400">
-            Login
-          </Link>
+          <p className="mb-4">
+            {" "}
+            Have an Account?{" "}
+            <Link to="/login" className="text underline text-blue-400">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </div>
