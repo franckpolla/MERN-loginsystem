@@ -1,31 +1,30 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const forgotPassword = () => {
-  const [email, setEmail] = useState("");
+const resetPassword = () => {
+  const [password, setPassword] = useState("");
+  const { token } = useParams();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const postrequest = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/auth/forgotPassword",
+          `http://localhost:3000/auth/resetPassword/${token}`,
           {
-            email,
+            password,
           }
         );
         console.log(response.data);
-        if (await response.data.status) {
-          alert("Please check your email for the reset password link!");
+        if (response.data.status) {
           navigate("/login");
+          console.lo(response.data);
         }
-        console.log(response.data);
       } catch (error) {
         console.error(error.message);
       }
     };
-    e;
     postrequest();
   };
 
@@ -34,20 +33,20 @@ const forgotPassword = () => {
       <div>
         <div className="text-center   containere flex flex-col h-screen justify-center items-center text-white ">
           <div className="border p-20 w-3/4 md:w-96 lg:w-96 rounded-3xl flex flex-col justify-center bg-slate-600  items-center">
-            <h1 className="text-3xl font-bold mb-4"> Get password</h1>
+            <h1 className="text-3xl font-bold mb-4"> Reset password</h1>
             <form
               onSubmit={handleSubmit}
               className="sign-up-form flex flex-col justify-center items-center "
             >
-              <label htmlFor="email">Email: </label>
+              <label htmlFor="password">Password: </label>
               <input
-                type="email"
-                id="email"
+                type="password"
+                id="password"
                 required
-                name="email"
-                placeholder="Enter email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                name="password"
+                placeholder="Enter password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
                 className=" text-black border p-1 rounded text-center w-50"
                 autoComplete="off"
               />
@@ -63,4 +62,4 @@ const forgotPassword = () => {
   );
 };
 
-export default forgotPassword;
+export default resetPassword;

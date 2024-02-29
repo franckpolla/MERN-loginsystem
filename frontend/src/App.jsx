@@ -5,6 +5,9 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 import Home from "./components/Home";
 import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/resetPassword";
+
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -14,6 +17,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/resetPassword/:token" element={<ResetPassword />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );

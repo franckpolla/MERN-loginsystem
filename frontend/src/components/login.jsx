@@ -18,10 +18,10 @@ const login = () => {
           password,
         });
         console.log(response.data);
-        if (!response.data.status) {
-          alert(`Error: ${response.data.message}`);
-        } else {
+        if (response.data.status) {
           navigate("/");
+        } else {
+          alert(`Error: ${response.data.message}`);
         }
       } catch (error) {
         console.error(error.message);
@@ -69,7 +69,7 @@ const login = () => {
                 Log in
               </button>
               <Link
-                to="/forgotPassword  "
+                to="/forgotPassword"
                 className="text-sm text-blue-300 underline"
               >
                 {" "}

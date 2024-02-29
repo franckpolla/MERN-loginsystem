@@ -20,7 +20,7 @@ const signup = () => {
           password,
         });
         console.log(response.data);
-        if (!response.data.status) {
+        if (response.data.status) {
           navigate("/login");
         }
       } catch (error) {
